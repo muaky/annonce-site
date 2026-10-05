@@ -1,0 +1,83 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Услуги",
+    "en": "Services"
+  },
+  "title": {
+    "ru": "Весь маркетинг под одной крышей — от стратегии до продаж",
+    "en": "All of marketing under one roof — from strategy to sales"
+  },
+  "items": [
+    {
+      "name": {
+        "ru": "Стратегия и позиционирование",
+        "en": "Strategy & positioning"
+      },
+      "text": {
+        "ru": "Разбираем рынок, конкурентов и экономику. Определяем, кому и что продавать, и считаем, сколько это должно приносить.",
+        "en": "We study the market, competitors and unit economics, define who to sell what to, and model what it should earn."
+      }
+    },
+    {
+      "name": {
+        "ru": "Брендинг и айдентика",
+        "en": "Branding & identity"
+      },
+      "text": {
+        "ru": "Название, логотип, фирменный стиль и тон коммуникации. Бренд, который узнают и которому доверяют.",
+        "en": "Naming, logo, visual identity and tone of voice. A brand people recognise and trust."
+      }
+    },
+    {
+      "name": {
+        "ru": "Сайты и лендинги",
+        "en": "Websites & landing pages"
+      },
+      "text": {
+        "ru": "От продающей страницы до корпоративного сайта и интернет-магазина: дизайн, разработка, скорость, конверсия.",
+        "en": "From a single sales page to corporate sites and online stores: design, development, speed, conversion."
+      }
+    },
+    {
+      "name": {
+        "ru": "Мобильные и веб-приложения",
+        "en": "Mobile & web apps"
+      },
+      "text": {
+        "ru": "Проектируем и разрабатываем приложения: личные кабинеты, онлайн-запись, программы лояльности, сервисы.",
+        "en": "We design and build apps: client portals, online booking, loyalty programs, services."
+      }
+    },
+    {
+      "name": {
+        "ru": "Реклама в Google и Meta",
+        "en": "Google & Meta ads"
+      },
+      "text": {
+        "ru": "Поиск, Performance Max, YouTube, Facebook, Instagram. Запуск, креативы и масштабирование на заявки и продажи.",
+        "en": "Search, Performance Max, YouTube, Facebook, Instagram. Launch, creatives and scaling for leads and sales."
+      }
+    },
+    {
+      "name": {
+        "ru": "Контент и креативы",
+        "en": "Content & creatives"
+      },
+      "text": {
+        "ru": "Съёмки, видео, рекламные креативы и контент для соцсетей, который работает на продажи, а не только на охваты.",
+        "en": "Shoots, video, ad creatives and social content built to sell, not just to reach."
+      }
+    },
+    {
+      "name": {
+        "ru": "Аналитика, CRM и автоматизация",
+        "en": "Analytics, CRM & automation"
+      },
+      "text": {
+        "ru": "Сквозная аналитика, CRM, чат-боты и автоворонки. Видно, какой рубль принёс клиента.",
+        "en": "End-to-end analytics, CRM, chatbots and automated funnels. You see which dollar brought each client."
+      }
+    }
+  ]
+}

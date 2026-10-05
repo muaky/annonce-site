@@ -1,0 +1,156 @@
+{
+  "title": {
+    "ru": "Подберём стратегию за 4 вопроса",
+    "en": "We'll build your strategy in 4 questions"
+  },
+  "stepLabel": {
+    "ru": "Вопрос",
+    "en": "Question"
+  },
+  "back": {
+    "ru": "← Назад",
+    "en": "← Back"
+  },
+  "steps": [
+    {
+      "question": {
+        "ru": "Чего хотите добиться?",
+        "en": "What do you want to achieve?"
+      },
+      "options": [
+        {
+          "ru": "Больше заявок",
+          "en": "More leads"
+        },
+        {
+          "ru": "Больше продаж в магазине",
+          "en": "More online sales"
+        },
+        {
+          "ru": "Дешевле клиент",
+          "en": "Lower cost per client"
+        },
+        {
+          "ru": "Запустить рекламу с нуля",
+          "en": "Launch ads from scratch"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ru": "Где реклама сейчас?",
+        "en": "Where do you advertise now?"
+      },
+      "options": [
+        {
+          "ru": "Meta (Facebook, Instagram)",
+          "en": "Meta (Facebook, Instagram)"
+        },
+        {
+          "ru": "Google",
+          "en": "Google"
+        },
+        {
+          "ru": "И там, и там",
+          "en": "Both"
+        },
+        {
+          "ru": "Пока нигде",
+          "en": "Nowhere yet"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ru": "Рекламный бюджет в месяц?",
+        "en": "Monthly ad budget?"
+      },
+      "options": [
+        {
+          "ru": "до $1 000",
+          "en": "under $1,000"
+        },
+        {
+          "ru": "$1 000 – $5 000",
+          "en": "$1,000 – $5,000"
+        },
+        {
+          "ru": "$5 000 – $20 000",
+          "en": "$5,000 – $20,000"
+        },
+        {
+          "ru": "$20 000+",
+          "en": "$20,000+"
+        }
+      ]
+    },
+    {
+      "question": {
+        "ru": "Ваша ниша?",
+        "en": "Your industry?"
+      },
+      "options": [
+        {
+          "ru": "Услуги",
+          "en": "Services"
+        },
+        {
+          "ru": "E-commerce",
+          "en": "E-commerce"
+        },
+        {
+          "ru": "Недвижимость",
+          "en": "Real estate"
+        },
+        {
+          "ru": "B2B",
+          "en": "B2B"
+        },
+        {
+          "ru": "Другое",
+          "en": "Other"
+        }
+      ]
+    }
+  ],
+  "contactQuestion": {
+    "ru": "Куда прислать стратегию?",
+    "en": "Where should we send the strategy?"
+  },
+  "fName": {
+    "ru": "Имя",
+    "en": "Name"
+  },
+  "fPhone": {
+    "ru": "Телефон или Telegram",
+    "en": "Phone or Telegram"
+  },
+  "fSite": {
+    "ru": "Сайт (если есть)",
+    "en": "Website (if any)"
+  },
+  "submit": {
+    "ru": "Получить стратегию",
+    "en": "Get the strategy"
+  },
+  "sending": {
+    "ru": "Отправляем…",
+    "en": "Sending…"
+  },
+  "doneTitle": {
+    "ru": "Готово. Ответим в течение 24 часов.",
+    "en": "Done. We'll reply within 24 hours."
+  },
+  "doneText": {
+    "ru": "Пока ждёте — посмотрите кейсы.",
+    "en": "Meanwhile, take a look at our cases."
+  },
+  "doneCta": {
+    "ru": "Смотреть кейсы",
+    "en": "See cases"
+  },
+  "privacy": {
+    "ru": "Нажимая кнопку, вы соглашаетесь на обработку контактных данных.",
+    "en": "By submitting, you agree to the processing of your contact details."
+  }
+}

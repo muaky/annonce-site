@@ -1,0 +1,2915 @@
+# Sveltia CMS config (JSON is valid YAML). Generated — edit carefully.
+{
+  "backend": {
+    "name": "github",
+    "repo": "muaky/annonce-site",
+    "branch": "main"
+  },
+  "media_folder": "uploads",
+  "public_folder": "/uploads",
+  "locale": "ru",
+  "collections": [
+    {
+      "name": "cases_pages",
+      "label": "Кейсы",
+      "label_singular": "кейс",
+      "description": "Каждый кейс — отдельная страница. Новый кейс появится на главной и в карте сайта через ~1 минуту после публикации.",
+      "folder": "content/cases",
+      "format": "json",
+      "extension": "json",
+      "create": true,
+      "delete": true,
+      "identifier_field": "slug",
+      "slug": "{{slug}}",
+      "summary": "{{fields.title.ru}}",
+      "sortable_fields": [
+        "date",
+        "slug"
+      ],
+      "fields": [
+        {
+          "label": "Адрес страницы",
+          "name": "slug",
+          "widget": "string",
+          "hint": "Латиница, цифры и дефис. Например: dental-clinic-meta. Станет адресом /cases/dental-clinic-meta/",
+          "pattern": [
+            "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "Только маленькие латинские буквы, цифры и дефис"
+          ]
+        },
+        {
+          "label": "Дата",
+          "name": "date",
+          "widget": "datetime",
+          "time_format": false,
+          "date_format": "YYYY-MM-DD",
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "label": "Клиент",
+          "name": "client",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "label": "Метка",
+          "name": "tag",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Заголовок",
+          "name": "title",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Краткое описание (на карточке)",
+          "name": "text",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Изображение",
+          "name": "image",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "label": "Ниша",
+          "name": "niche",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Каналы",
+          "name": "channels",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "label": "Срок",
+          "name": "period",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Результаты (большие цифры)",
+          "name": "results",
+          "widget": "list",
+          "label_singular": "Результат",
+          "collapsed": true,
+          "summary": "{{fields.value.ru}}",
+          "fields": [
+            {
+              "label": "Значение",
+              "name": "value",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись",
+              "name": "label",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Текст страницы",
+          "name": "body",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "markdown"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "markdown",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Черновик (не показывать на сайте)",
+          "name": "draft",
+          "widget": "boolean",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "blog_pages",
+      "label": "Статьи блога",
+      "label_singular": "статью",
+      "description": "Каждая статья — отдельная страница.",
+      "folder": "content/blog",
+      "format": "json",
+      "extension": "json",
+      "create": true,
+      "delete": true,
+      "identifier_field": "slug",
+      "slug": "{{slug}}",
+      "summary": "{{fields.title.ru}}",
+      "sortable_fields": [
+        "date",
+        "slug"
+      ],
+      "fields": [
+        {
+          "label": "Адрес страницы",
+          "name": "slug",
+          "widget": "string",
+          "hint": "Латиница, цифры и дефис. Например: dental-clinic-meta. Станет адресом /cases/dental-clinic-meta/",
+          "pattern": [
+            "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "Только маленькие латинские буквы, цифры и дефис"
+          ]
+        },
+        {
+          "label": "Дата",
+          "name": "date",
+          "widget": "datetime",
+          "time_format": false,
+          "date_format": "YYYY-MM-DD",
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "label": "Заголовок",
+          "name": "title",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Метка",
+          "name": "tag",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Краткое описание",
+          "name": "excerpt",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "string"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Изображение",
+          "name": "image",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "label": "Текст страницы",
+          "name": "body",
+          "widget": "object",
+          "collapsed": false,
+          "summary": "{{fields.ru}}",
+          "fields": [
+            {
+              "label": "RU",
+              "name": "ru",
+              "widget": "markdown"
+            },
+            {
+              "label": "EN",
+              "name": "en",
+              "widget": "markdown",
+              "required": false
+            }
+          ]
+        },
+        {
+          "label": "Черновик (не показывать на сайте)",
+          "name": "draft",
+          "widget": "boolean",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "site",
+      "label": "Блоки главной страницы",
+      "label_singular": "Блок",
+      "files": [
+        {
+          "name": "layout",
+          "label": "Порядок блоков",
+          "file": "content/layout.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Блоки (сверху вниз)",
+              "name": "order",
+              "widget": "list",
+              "hint": "Перетащите, чтобы поменять порядок. Удалите блок из списка, чтобы скрыть его.",
+              "field": {
+                "label": "Блок",
+                "name": "block",
+                "widget": "select",
+                "options": [
+                  {
+                    "label": "Бегущая строка",
+                    "value": "marquee"
+                  },
+                  {
+                    "label": "Клиенты",
+                    "value": "clients"
+                  },
+                  {
+                    "label": "Услуги",
+                    "value": "services"
+                  },
+                  {
+                    "label": "Цифры",
+                    "value": "stats"
+                  },
+                  {
+                    "label": "Калькулятор",
+                    "value": "calc"
+                  },
+                  {
+                    "label": "Кейсы",
+                    "value": "cases"
+                  },
+                  {
+                    "label": "Процесс",
+                    "value": "process"
+                  },
+                  {
+                    "label": "Команда",
+                    "value": "team"
+                  },
+                  {
+                    "label": "Отзывы",
+                    "value": "reviews"
+                  },
+                  {
+                    "label": "Тарифы",
+                    "value": "pricing"
+                  },
+                  {
+                    "label": "Блог",
+                    "value": "blog"
+                  },
+                  {
+                    "label": "Контакты и квиз",
+                    "value": "contact"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "seo",
+          "label": "SEO и превью для соцсетей",
+          "file": "content/seo.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Описание",
+              "name": "description",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Картинка для соцсетей (1200×630)",
+              "name": "ogImage",
+              "widget": "image",
+              "required": false
+            },
+            {
+              "label": "Язык для поисковиков",
+              "name": "lang",
+              "widget": "select",
+              "options": [
+                "ru",
+                "en"
+              ],
+              "default": "ru"
+            }
+          ]
+        },
+        {
+          "name": "nav",
+          "label": "Меню",
+          "file": "content/nav.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Услуги",
+              "name": "services",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кейсы",
+              "name": "cases",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Процесс",
+              "name": "process",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Тарифы",
+              "name": "pricing",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Блог",
+              "name": "blog",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка",
+              "name": "cta",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "hero",
+          "label": "Первый экран",
+          "file": "content/hero.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подзаголовок",
+              "name": "sub",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка 1",
+              "name": "cta1",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка 2",
+              "name": "cta2",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Большая цифра",
+              "name": "metric",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись к цифре",
+              "name": "metricLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Изображение",
+              "name": "image",
+              "widget": "image",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "marquee",
+          "label": "Бегущая строка",
+          "file": "content/marquee.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Строка 1",
+              "name": "line1",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Строка 2 (контурная)",
+              "name": "line2",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "clients",
+          "label": "Клиенты (логотипы)",
+          "file": "content/clients.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Логотипы",
+              "name": "logos",
+              "widget": "list",
+              "label_singular": "Логотип",
+              "collapsed": true,
+              "summary": "{{fields.name}}",
+              "fields": [
+                {
+                  "label": "Название",
+                  "name": "name",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Изображение",
+                  "name": "image",
+                  "widget": "image",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "services",
+          "label": "Услуги",
+          "file": "content/services.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Услуга",
+              "collapsed": true,
+              "summary": "{{fields.name.ru}}",
+              "fields": [
+                {
+                  "label": "Название",
+                  "name": "name",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Текст",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "text"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "text",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stats",
+          "label": "Цифры",
+          "file": "content/stats.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Цифра",
+              "collapsed": true,
+              "summary": "{{fields.value.ru}}",
+              "fields": [
+                {
+                  "label": "Значение",
+                  "name": "value",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Подпись",
+                  "name": "label",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "calc",
+          "label": "Калькулятор",
+          "file": "content/calc.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись бюджета",
+              "name": "budgetLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись заявок",
+              "name": "leadsLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись клиентов",
+              "name": "clientsLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Примечание",
+              "name": "note",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Цена заявки, $",
+              "name": "cpl",
+              "widget": "number",
+              "value_type": "int"
+            },
+            {
+              "label": "Конверсия в клиента, %",
+              "name": "closeRate",
+              "widget": "number",
+              "value_type": "int"
+            },
+            {
+              "label": "Мин. бюджет, $",
+              "name": "min",
+              "widget": "number",
+              "value_type": "int"
+            },
+            {
+              "label": "Макс. бюджет, $",
+              "name": "max",
+              "widget": "number",
+              "value_type": "int"
+            }
+          ]
+        },
+        {
+          "name": "cases",
+          "label": "Кейсы — заголовки блока",
+          "file": "content/cases.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Финальная карточка",
+              "name": "endTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка финальной карточки",
+              "name": "endCta",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Ссылка «смотреть кейс»",
+              "name": "more",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Ссылка «назад»",
+              "name": "back",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись «следующий кейс»",
+              "name": "next",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подписи характеристик",
+              "name": "metaLabels",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Клиент",
+                  "name": "client",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Ниша",
+                  "name": "niche",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Каналы",
+                  "name": "channels",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Срок",
+                  "name": "period",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Призыв внизу страницы",
+              "name": "ctaTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "process",
+          "label": "Процесс",
+          "file": "content/process.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Шаг",
+              "collapsed": true,
+              "summary": "{{fields.name.ru}}",
+              "fields": [
+                {
+                  "label": "Название",
+                  "name": "name",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Текст",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "team",
+          "label": "Команда",
+          "file": "content/team.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Человек",
+              "collapsed": true,
+              "summary": "{{fields.name.ru}}",
+              "fields": [
+                {
+                  "label": "Название",
+                  "name": "name",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Роль",
+                  "name": "role",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Фото",
+                  "name": "photo",
+                  "widget": "image",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "reviews",
+          "label": "Отзывы",
+          "file": "content/reviews.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Отзыв",
+              "collapsed": true,
+              "summary": "{{fields.quote.ru}}",
+              "fields": [
+                {
+                  "label": "Отзыв",
+                  "name": "quote",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Автор",
+                  "name": "author",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pricing",
+          "label": "Тарифы",
+          "file": "content/pricing.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Бейдж «популярный»",
+              "name": "popular",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Элементы",
+              "name": "items",
+              "widget": "list",
+              "label_singular": "Тариф",
+              "collapsed": true,
+              "summary": "{{fields.name.ru}}",
+              "fields": [
+                {
+                  "label": "Название",
+                  "name": "name",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Цена",
+                  "name": "price",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Текст",
+                  "name": "text",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Кнопка",
+                  "name": "cta",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Выделить тариф",
+                  "name": "featured",
+                  "widget": "boolean",
+                  "required": false,
+                  "default": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "blog",
+          "label": "Блог — заголовки блока",
+          "file": "content/blog.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Надпись над заголовком",
+              "name": "kicker",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Ссылка «назад»",
+              "name": "back",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись «мин чтения»",
+              "name": "read",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Призыв внизу страницы",
+              "name": "ctaTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "quiz",
+          "label": "Квиз (форма заявки)",
+          "file": "content/quiz.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подпись «Вопрос»",
+              "name": "stepLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Ссылка «назад»",
+              "name": "back",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Вопросы",
+              "name": "steps",
+              "widget": "list",
+              "label_singular": "Вопрос",
+              "collapsed": true,
+              "summary": "{{fields.question.ru}}",
+              "fields": [
+                {
+                  "label": "Вопрос",
+                  "name": "question",
+                  "widget": "object",
+                  "collapsed": false,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                },
+                {
+                  "label": "Варианты ответа",
+                  "name": "options",
+                  "widget": "list",
+                  "label_singular": "Вариант",
+                  "collapsed": true,
+                  "summary": "{{fields.ru}}",
+                  "fields": [
+                    {
+                      "label": "RU",
+                      "name": "ru",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "EN",
+                      "name": "en",
+                      "widget": "string",
+                      "required": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Заголовок шага с контактами",
+              "name": "contactQuestion",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Поле «имя»",
+              "name": "fName",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Поле «телефон»",
+              "name": "fPhone",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Поле «сайт»",
+              "name": "fSite",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка отправки",
+              "name": "submit",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Текст во время отправки",
+              "name": "sending",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Заголовок после отправки",
+              "name": "doneTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Текст после отправки",
+              "name": "doneText",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Кнопка после отправки",
+              "name": "doneCta",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Мелкий текст под формой",
+              "name": "privacy",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "contact",
+          "label": "Контакты и кнопка чата",
+          "file": "content/contact.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Показывать блок",
+              "name": "show",
+              "widget": "boolean",
+              "required": false,
+              "default": true
+            },
+            {
+              "label": "Заголовок",
+              "name": "title",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Подзаголовок",
+              "name": "sub",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "E-mail",
+              "name": "email",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "label": "Телефон и соцсети",
+              "name": "phones",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Ссылка на Telegram",
+              "name": "telegram",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "label": "Ссылка на WhatsApp",
+              "name": "whatsapp",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "label": "Текст кнопки чата",
+              "name": "floatLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "footer",
+          "label": "Подвал",
+          "file": "content/footer.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Текст",
+              "name": "text",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "legal",
+          "label": "GDPR: политика, cookie, реквизиты",
+          "file": "content/legal.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Реквизиты компании",
+              "name": "company",
+              "widget": "object",
+              "collapsed": false,
+              "fields": [
+                {
+                  "label": "Юр. название",
+                  "name": "legalName",
+                  "widget": "string"
+                },
+                {
+                  "label": "Рег. номер",
+                  "name": "regNo",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "VAT / ИНН",
+                  "name": "vat",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Юр. адрес",
+                  "name": "address",
+                  "widget": "string"
+                },
+                {
+                  "label": "E-mail компании",
+                  "name": "email",
+                  "widget": "string"
+                },
+                {
+                  "label": "E-mail по вопросам данных (DPO)",
+                  "name": "dpoEmail",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Версия политики",
+              "name": "policyVersion",
+              "widget": "string",
+              "hint": "Поменяйте (например 1.1), если существенно изменили политику — баннер cookie покажется всем снова."
+            },
+            {
+              "label": "Дата обновления",
+              "name": "policyUpdated",
+              "widget": "datetime",
+              "time_format": false,
+              "date_format": "YYYY-MM-DD",
+              "format": "YYYY-MM-DD"
+            },
+            {
+              "label": "Срок хранения заявок",
+              "name": "retention",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Заголовок страницы политики",
+              "name": "policyTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Текст политики",
+              "name": "policy",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "markdown",
+                  "hint": "Подстановки: {legalName} {regNo} {address} {dpoEmail} {retention} {version} {updated}. Заголовки — «## », списки — «- ». Рекомендуем показать юристу."
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "markdown",
+                  "hint": "Подстановки: {legalName} {regNo} {address} {dpoEmail} {retention} {version} {updated}. Заголовки — «## », списки — «- ». Рекомендуем показать юристу."
+                }
+              ]
+            },
+            {
+              "label": "Баннер: заголовок",
+              "name": "cookieTitle",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Баннер: текст",
+              "name": "cookieText",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "label": "Ссылка на политику",
+              "name": "policyLink",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Кнопка «Принять все»",
+              "name": "acceptAll",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Кнопка «Только необходимые»",
+              "name": "necessaryOnly",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Кнопка «Настроить»",
+              "name": "customize",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Кнопка «Сохранить»",
+              "name": "save",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Категория: необходимые",
+              "name": "catNecessary",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Категория: аналитика",
+              "name": "catAnalytics",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Категория: маркетинг",
+              "name": "catMarketing",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Галочка согласия в форме",
+              "name": "consentLabel",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "text"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "label": "Подвал: конфиденциальность",
+              "name": "footerPrivacy",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "label": "Подвал: настройки cookie",
+              "name": "footerCookies",
+              "widget": "object",
+              "collapsed": false,
+              "summary": "{{fields.ru}}",
+              "fields": [
+                {
+                  "label": "RU",
+                  "name": "ru",
+                  "widget": "string"
+                },
+                {
+                  "label": "EN",
+                  "name": "en",
+                  "widget": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tracking",
+          "label": "Аналитика и пиксели",
+          "file": "content/tracking.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Google Analytics 4 — ID",
+              "name": "ga4Id",
+              "widget": "string",
+              "required": false,
+              "hint": "Вида G-XXXXXXXXXX. Загрузится только после согласия на аналитику."
+            },
+            {
+              "label": "Google Tag Manager — ID",
+              "name": "gtmId",
+              "widget": "string",
+              "required": false,
+              "hint": "Вида GTM-XXXXXXX. Необязательно. Consent Mode v2 передаётся автоматически."
+            },
+            {
+              "label": "Meta Pixel — ID",
+              "name": "metaPixelId",
+              "widget": "string",
+              "required": false,
+              "hint": "Только цифры. Загрузится только после согласия на маркетинг. При заявке отправляется событие Lead."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

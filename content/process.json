@@ -1,0 +1,53 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Процесс",
+    "en": "Process"
+  },
+  "title": {
+    "ru": "Четыре шага до первых заявок",
+    "en": "Four steps to your first leads"
+  },
+  "items": [
+    {
+      "name": {
+        "ru": "Аудит",
+        "en": "Audit"
+      },
+      "text": {
+        "ru": "Разбираем текущую рекламу, сайт и цифры. Находим, куда утекают деньги.",
+        "en": "We review your ads, site and numbers, and find where the money leaks."
+      }
+    },
+    {
+      "name": {
+        "ru": "Стратегия",
+        "en": "Strategy"
+      },
+      "text": {
+        "ru": "Каналы, аудитории, офферы и KPI, под которыми мы подписываемся.",
+        "en": "Channels, audiences, offers and the KPIs we sign up for."
+      }
+    },
+    {
+      "name": {
+        "ru": "Запуск",
+        "en": "Launch"
+      },
+      "text": {
+        "ru": "Креативы, настройка кампаний и аналитики. Первые данные — за [0] дней.",
+        "en": "Creatives, campaign and tracking setup. First data in [0] days."
+      }
+    },
+    {
+      "name": {
+        "ru": "Масштаб",
+        "en": "Scale"
+      },
+      "text": {
+        "ru": "Отключаем то, что не продаёт, и вкладываем в то, что продаёт.",
+        "en": "We cut what doesn't sell and double down on what does."
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "show": true,
+  "items": [
+    {
+      "quote": {
+        "ru": "«[Отзыв клиента — конкретный результат и что изменилось в бизнесе.]»",
+        "en": "“[Client testimonial — a concrete result and what changed in the business.]”"
+      },
+      "author": {
+        "ru": "— [Имя], [должность], [компания]",
+        "en": "— [Name], [title], [company]"
+      }
+    },
+    {
+      "quote": {
+        "ru": "«[Отзыв клиента — конкретный результат и что изменилось в бизнесе.]»",
+        "en": "“[Client testimonial — a concrete result and what changed in the business.]”"
+      },
+      "author": {
+        "ru": "— [Имя], [должность], [компания]",
+        "en": "— [Name], [title], [company]"
+      }
+    }
+  ]
+}

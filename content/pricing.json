@@ -1,0 +1,74 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Тарифы",
+    "en": "Pricing"
+  },
+  "title": {
+    "ru": "Платите за систему, а не за часы",
+    "en": "Pay for a system, not for hours"
+  },
+  "popular": {
+    "ru": "Популярный",
+    "en": "Popular"
+  },
+  "items": [
+    {
+      "name": {
+        "ru": "Start",
+        "en": "Start"
+      },
+      "price": {
+        "ru": "$0 000 / мес",
+        "en": "$0,000 / mo"
+      },
+      "text": {
+        "ru": "Один канал: Google или Meta. [Что входит]",
+        "en": "One channel: Google or Meta. [What's included]"
+      },
+      "cta": {
+        "ru": "Выбрать",
+        "en": "Choose"
+      },
+      "featured": false
+    },
+    {
+      "name": {
+        "ru": "Growth",
+        "en": "Growth"
+      },
+      "price": {
+        "ru": "$0 000 / мес",
+        "en": "$0,000 / mo"
+      },
+      "text": {
+        "ru": "Google + Meta, креативы, сквозная аналитика. [Что входит]",
+        "en": "Google + Meta, creatives, end-to-end analytics. [What's included]"
+      },
+      "cta": {
+        "ru": "Выбрать",
+        "en": "Choose"
+      },
+      "featured": true
+    },
+    {
+      "name": {
+        "ru": "Scale",
+        "en": "Scale"
+      },
+      "price": {
+        "ru": "Индивидуально",
+        "en": "Custom"
+      },
+      "text": {
+        "ru": "Для бюджетов от $00 000: выделенная команда и стратегия. [Что входит]",
+        "en": "For budgets from $00,000: a dedicated team and strategy. [What's included]"
+      },
+      "cta": {
+        "ru": "Обсудить",
+        "en": "Discuss"
+      },
+      "featured": false
+    }
+  ]
+}

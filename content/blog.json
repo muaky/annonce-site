@@ -1,0 +1,23 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Блог",
+    "en": "Blog"
+  },
+  "title": {
+    "ru": "Что работает в рекламе прямо сейчас",
+    "en": "What works in ads right now"
+  },
+  "back": {
+    "ru": "← Все статьи",
+    "en": "← All articles"
+  },
+  "read": {
+    "ru": "мин чтения",
+    "en": "min read"
+  },
+  "ctaTitle": {
+    "ru": "Разберём вашу рекламу бесплатно",
+    "en": "We'll review your ads for free"
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>annonce. — админка</title>
+<link rel="icon" href="/favicon.png">
+</head>
+<body>
+<a href="/admin/crm.html" id="crm-link" style="position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#e3a72f;color:#07222a;font:600 14px/1 system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3)">CRM · Заявки →</a>
+<script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+<script>
+(function () {
+  var HOME = ["layout","nav","hero","marquee","clients","services","stats","calc","cases","process","team","reviews","pricing","blog","quiz","contact","footer"];
+  function fix(v, getAsset) {
+    if (typeof v === 'string' && /^\/?uploads\//.test(v)) { try { var a = getAsset(v); if (a) return a.url || String(a); } catch (e) {} return v; }
+    if (Array.isArray(v)) return v.map(function (x) { return fix(x, getAsset); });
+    if (v && typeof v === 'object') { var o = {}; Object.keys(v).forEach(function (k) { o[k] = fix(v[k], getAsset); }); return o; }
+    return v;
+  }
+  function make(file, url) {
+    return createClass({
+      push: function () {
+        var f = this.frame; if (!f || !f.contentWindow) return;
+        var d = this.props.entry.getIn(['data']); d = d && d.toJS ? d.toJS() : d;
+        try { f.contentWindow.postMessage({ annonce: 'preview', file: file, data: fix(d, this.props.getAsset) }, '*'); } catch (e) {}
+      },
+      componentDidMount: function () { var s = this; this.t = [300, 900, 2000, 4000].map(function (ms) { return setTimeout(function () { s.push(); }, ms); }); },
+      componentDidUpdate: function () { this.push(); },
+      componentWillUnmount: function () { (this.t || []).forEach(clearTimeout); },
+      render: function () {
+        var s = this;
+        return h('iframe', { ref: function (el) { s.frame = el; }, src: location.origin + url, onLoad: function () { setTimeout(function () { s.push(); }, 200); }, style: { width: '100%', height: '100vh', border: 0, display: 'block', background: '#07222a' } });
+      }
+    });
+  }
+  HOME.forEach(function (n) { CMS.registerPreviewTemplate(n, make(n, '/?cms=' + n)); });
+  CMS.registerPreviewTemplate('cases_pages', make('entry', '/entry.html?cms=case'));
+  CMS.registerPreviewTemplate('blog_pages', make('entry', '/entry.html?cms=post'));
+})();
+</script>
+</body>
+</html>

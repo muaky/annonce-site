@@ -1,0 +1,16 @@
+{
+  "order": [
+    "marquee",
+    "clients",
+    "services",
+    "stats",
+    "calc",
+    "cases",
+    "process",
+    "team",
+    "reviews",
+    "pricing",
+    "blog",
+    "contact"
+  ]
+}

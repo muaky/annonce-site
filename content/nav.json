@@ -1,0 +1,26 @@
+{
+  "services": {
+    "ru": "Услуги",
+    "en": "Services"
+  },
+  "cases": {
+    "ru": "Кейсы",
+    "en": "Cases"
+  },
+  "process": {
+    "ru": "Процесс",
+    "en": "Process"
+  },
+  "pricing": {
+    "ru": "Тарифы",
+    "en": "Pricing"
+  },
+  "blog": {
+    "ru": "Блог",
+    "en": "Blog"
+  },
+  "cta": {
+    "ru": "Обсудить проект",
+    "en": "Let's talk"
+  }
+}

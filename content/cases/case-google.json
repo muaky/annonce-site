@@ -1,0 +1,63 @@
+{
+  "slug": "case-google",
+  "date": "2026-08-01",
+  "client": "[Клиент]",
+  "tag": {
+    "ru": "[Ниша] · Google Ads",
+    "en": "[Industry] · Google Ads"
+  },
+  "title": {
+    "ru": "[Клиент]: 000 заявок в месяц с поиска",
+    "en": "[Client]: 000 leads a month from search"
+  },
+  "text": {
+    "ru": "[Задача, что сделали, результат — 2–3 предложения]",
+    "en": "[Challenge, what we did, result — 2–3 sentences]"
+  },
+  "image": "",
+  "niche": {
+    "ru": "[Ниша]",
+    "en": "[Industry]"
+  },
+  "channels": "Google Ads",
+  "period": {
+    "ru": "[0 месяца]",
+    "en": "[0 months]"
+  },
+  "results": [
+    {
+      "value": {
+        "ru": "−00%",
+        "en": "−00%"
+      },
+      "label": {
+        "ru": "Стоимость заявки",
+        "en": "Cost per lead"
+      }
+    },
+    {
+      "value": {
+        "ru": "000",
+        "en": "000"
+      },
+      "label": {
+        "ru": "Заявок в месяц",
+        "en": "Leads per month"
+      }
+    },
+    {
+      "value": {
+        "ru": "×0,0",
+        "en": "×0.0"
+      },
+      "label": {
+        "ru": "ROAS",
+        "en": "ROAS"
+      }
+    }
+  ],
+  "body": {
+    "ru": "## Задача\n\n[Опишите, с чем пришёл клиент: какие были цифры, что не работало.]\n\n## Что сделали\n\n- [Шаг 1 — например, пересобрали структуру кампаний]\n- [Шаг 2 — новые креативы и офферы]\n- [Шаг 3 — сквозная аналитика до CRM]\n\n## Результат\n\n[2–3 предложения о результате и о том, что изменилось в бизнесе клиента.]",
+    "en": "## Challenge\n\n[Describe what the client came with: the numbers, what was not working.]\n\n## What we did\n\n- [Step 1 — e.g. rebuilt the campaign structure]\n- [Step 2 — new creatives and offers]\n- [Step 3 — end-to-end tracking into the CRM]\n\n## Result\n\n[2–3 sentences about the result and what changed for the business.]"
+  }
+}

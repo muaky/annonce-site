@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>annonce. — инструкция по админке</title>
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07222a;color:#eef1f0;font:16px/1.65 Inter,system-ui,sans-serif;text-wrap:pretty}a{color:#e3a72f}a:hover{color:#f0c46a}
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+header{padding:72px 0 40px;border-bottom:1px solid rgba(238,241,240,.12)}
+.k{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#e3a72f}.k:before{content:"";width:32px;height:1px;background:#e3a72f}
+h1{font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.03em;font-weight:500;margin:20px 0 16px}
+.lead{font-size:19px;color:rgba(238,241,240,.78);max-width:60ch;margin:0}
+.grid{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:56px;padding:48px 0 96px}
+nav{position:sticky;top:24px;align-self:start;display:flex;flex-direction:column;gap:2px;font-size:14px}nav a{color:rgba(238,241,240,.65);text-decoration:none;padding:5px 0}nav a:hover{color:#e3a72f}
+section{padding:8px 0 40px;scroll-margin-top:24px}
+h2{font-size:28px;letter-spacing:-.02em;font-weight:500;margin:0 0 16px;display:flex;gap:14px;align-items:baseline}h2 span{font-size:14px;color:#e3a72f;font-feature-settings:"tnum"}
+p,li{color:rgba(238,241,240,.85);max-width:68ch}ol,ul{padding-left:22px}li{margin:6px 0}li::marker{color:#e3a72f}
+b{color:#eef1f0;font-weight:600}
+code{font-family:ui-monospace,monospace;font-size:.88em;background:rgba(238,241,240,.08);padding:2px 6px;border-radius:4px}
+.note{margin:20px 0;padding:16px 20px;border-radius:12px;background:#0c3140;box-shadow:0 0 0 1px rgba(238,241,240,.08);color:rgba(238,241,240,.85);max-width:68ch}
+table{border-collapse:collapse;width:100%;max-width:68ch;font-size:15px;margin:12px 0}td{padding:10px 0;border-top:1px solid rgba(238,241,240,.1);vertical-align:top}td:first-child{color:rgba(238,241,240,.6);width:44%;padding-right:16px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<div class="k">annonce. · админка</div>
+<h1>Как пользоваться админкой</h1>
+<p class="lead">Админка находится по адресу <code>ваш-сайт/admin</code>. Всё, что вы там меняете, сохраняется в GitHub, и сайт обновляется сам примерно через минуту.</p>
+</header>
+<div class="wrap grid">
+<nav>
+<a href="#login">1. Вход</a><a href="#map">2. Что где лежит</a><a href="#text">3. Изменить текст</a><a href="#order">4. Порядок блоков</a><a href="#case">5. Новый кейс</a><a href="#post">6. Новая статья</a><a href="#img">7. Картинки</a><a href="#preview">8. Предпросмотр</a><a href="#publish">9. Публикация</a><a href="#leads">10. Заявки в Telegram</a><a href="#seo">11. SEO</a><a href="#undo">12. Если что-то сломалось</a>
+</nav>
+<main>
+<section id="login"><h2><span>01</span>Вход</h2>
+<ol><li>Откройте <code>ваш-сайт/admin</code>.</li><li>Нажмите <b>«Войти с помощью токена доступа»</b> и вставьте токен GitHub (начинается с <code>github_pat_</code>).</li><li>Браузер запомнит вход. На новом устройстве токен понадобится снова.</li></ol>
+<div class="note">Каждому человеку в команде лучше выпустить свой токен: GitHub → Settings → Developer settings → Fine-grained tokens. Доступ только к репозиторию <code>annonce-site</code>, Contents: Read and write. Человека нужно сначала добавить в репозиторий: Settings → Collaborators.</div>
+</section>
+<section id="map"><h2><span>02</span>Что где лежит</h2>
+<table>
+<tr><td>Кейсы</td><td>Каждый кейс — отдельная страница <code>/cases/адрес/</code>. Карточки кейсов на главной собираются отсюда автоматически.</td></tr>
+<tr><td>Статьи блога</td><td>Каждая статья — отдельная страница <code>/blog/адрес/</code>.</td></tr>
+<tr><td>Блоки главной страницы</td><td>Тексты всех блоков главной, порядок блоков, квиз, контакты, SEO.</td></tr>
+</table>
+</section>
+<section id="text"><h2><span>03</span>Изменить текст блока</h2>
+<ol><li>Откройте <b>Блоки главной страницы</b> и выберите блок, например «Услуги».</li><li>У каждого текста два поля: <b>RU</b> и <b>EN</b>. Если EN пустое, на английской версии будет пусто — заполняйте оба.</li><li>Элементы списка (услуги, тарифы, отзывы, вопросы квиза) можно добавлять кнопкой <b>«Добавить»</b>, удалять через меню у элемента и перетаскивать за ручку слева, чтобы поменять порядок.</li><li>Нажмите <b>«Сохранить»</b>.</li></ol>
+<p>Галочка <b>«Показывать блок»</b> прячет блок с сайта, ничего не удаляя.</p>
+</section>
+<section id="order"><h2><span>04</span>Порядок блоков</h2>
+<p><b>Блоки главной страницы → Порядок блоков.</b> Перетащите блоки в нужном порядке сверху вниз. Если удалить блок из списка, он пропадёт с сайта; вернуть можно кнопкой «Добавить». Первый экран и подвал всегда стоят на своих местах.</p>
+</section>
+<section id="case"><h2><span>05</span>Новый кейс</h2>
+<ol><li><b>Кейсы → Новый кейс.</b></li><li><b>Адрес страницы</b> — латиницей через дефис, например <code>dental-clinic-meta</code>. Потом его лучше не менять: старые ссылки перестанут работать.</li><li><b>Дата</b> — по ней кейсы сортируются, новые идут первыми.</li><li>Заполните метку, заголовок, краткое описание (оно на карточке на главной), обложку, характеристики и <b>результаты</b> — большие цифры вверху страницы.</li><li><b>Текст страницы</b> — обычный редактор: заголовки, списки, жирный, ссылки, картинки. Заголовки второго уровня сами попадают в оглавление слева.</li><li>Галочка <b>«Черновик»</b> — кейс сохранится, но на сайте его не будет.</li></ol>
+</section>
+<section id="post"><h2><span>06</span>Новая статья</h2>
+<p>Так же, как кейс: <b>Статьи блога → Новая статья</b>. Время чтения считается само.</p>
+</section>
+<section id="img"><h2><span>07</span>Картинки</h2>
+<table>
+<tr><td>Обложка кейса / статьи</td><td>1920×1080 или больше, горизонтальная</td></tr>
+<tr><td>Карточка на главной</td><td>та же обложка, обрезается по центру</td></tr>
+<tr><td>Логотипы клиентов</td><td>PNG или SVG с прозрачным фоном; на сайте становятся монохромными</td></tr>
+<tr><td>Фото команды</td><td>квадрат, от 800×800</td></tr>
+<tr><td>Картинка для соцсетей</td><td>ровно 1200×630</td></tr>
+</table>
+<p>Перед загрузкой сжимайте фото, например на squoosh.app: до 300–400 КБ на картинку. Сайт будет грузиться быстрее.</p>
+</section>
+<section id="preview"><h2><span>08</span>Предпросмотр</h2>
+<p>Справа от полей показывается сайт и прокручивается к блоку, который вы редактируете. Изменения видны сразу, ещё до сохранения. Если панели не видно, нажмите иконку предпросмотра в верхней панели редактора.</p>
+</section>
+<section id="publish"><h2><span>09</span>Публикация</h2>
+<p>После «Сохранить» сайт пересобирается примерно за минуту. Если изменений не видно, обновите страницу без кэша: <code>Cmd+Shift+R</code> (Mac) или <code>Ctrl+F5</code> (Windows).</p>
+</section>
+<section id="leads"><h2><span>10</span>Заявки в Telegram</h2>
+<p>Заявки из квиза приходят в два места: в Netlify (раздел <b>Forms</b>) и в Telegram, если подключить бота. Подключение делается один раз:</p>
+<ol><li>В Telegram откройте <b>@BotFather</b> → <code>/newbot</code> → придумайте имя. Он пришлёт <b>токен</b>.</li><li>Напишите своему боту любое сообщение. Если заявки должны приходить в группу, добавьте бота в группу и напишите там.</li><li>Откройте в браузере <code>https://api.telegram.org/bot<i>ТОКЕН</i>/getUpdates</code> и найдите <code>"chat":{"id":…}</code> — это <b>ID чата</b>. У групп он начинается с минуса.</li><li>Netlify → ваш сайт → <b>Site configuration → Environment variables → Add a variable</b>: <code>TELEGRAM_BOT_TOKEN</code> = токен, <code>TELEGRAM_CHAT_ID</code> = ID чата. Несколько чатов — через запятую.</li><li><b>Deploys → Trigger deploy → Deploy site.</b></li><li>Отправьте тестовую заявку через квиз на сайте.</li></ol>
+<div class="note">Письма о заявках на почту: Netlify → <b>Forms → Form notifications → Add notification → Email</b>.</div>
+</section>
+<section id="seo"><h2><span>11</span>SEO</h2>
+<p><b>Блоки главной страницы → SEO и превью для соцсетей</b>: заголовок и описание сайта для Google и картинка, которая показывается, когда ссылку присылают в Telegram, WhatsApp или Facebook. Для кейсов и статей заголовок, описание и картинка берутся из самих кейсов. Карта сайта <code>/sitemap.xml</code> обновляется сама.</p>
+<p>Когда подключите домен, добавьте сайт в <b>Google Search Console</b> и отправьте туда адрес карты сайта.</p>
+</section>
+<section id="undo"><h2><span>12</span>Если что-то сломалось</h2>
+<p>Каждое сохранение — это отдельная запись в истории GitHub. Откройте репозиторий → <b>Commits</b>, найдите последнюю рабочую версию и восстановите файл. Или в Netlify: <b>Deploys</b> → выберите прошлую версию → <b>Publish deploy</b>, и сайт откатится за секунду.</p>
+</section>
+</main>
+</div>
+</body>
+</html>

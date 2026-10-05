@@ -1,0 +1,57 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Команда",
+    "en": "Team"
+  },
+  "title": {
+    "ru": "Люди, которые отвечают за цифры",
+    "en": "The people accountable for the numbers"
+  },
+  "items": [
+    {
+      "name": {
+        "ru": "[Имя Фамилия]",
+        "en": "[Full name]"
+      },
+      "role": {
+        "ru": "[Роль]",
+        "en": "[Role]"
+      },
+      "photo": ""
+    },
+    {
+      "name": {
+        "ru": "[Имя Фамилия]",
+        "en": "[Full name]"
+      },
+      "role": {
+        "ru": "[Роль]",
+        "en": "[Role]"
+      },
+      "photo": ""
+    },
+    {
+      "name": {
+        "ru": "[Имя Фамилия]",
+        "en": "[Full name]"
+      },
+      "role": {
+        "ru": "[Роль]",
+        "en": "[Role]"
+      },
+      "photo": ""
+    },
+    {
+      "name": {
+        "ru": "[Имя Фамилия]",
+        "en": "[Full name]"
+      },
+      "role": {
+        "ru": "[Роль]",
+        "en": "[Role]"
+      },
+      "photo": ""
+    }
+  ]
+}

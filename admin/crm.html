@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CRM — annonce.</title>
+<link rel="icon" href="/favicon.png">
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%}body{background:#07222a;color:#eef1f0;font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#e3a72f}a:hover{color:#f0c46a}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid #e3a72f;outline-offset:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border-radius:9px;border:1px solid rgba(238,241,240,.16);background:transparent;cursor:pointer;white-space:nowrap;text-decoration:none;color:#eef1f0}.btn:hover{background:rgba(238,241,240,.06);color:#eef1f0}
+.btn.pri{background:#e3a72f;border-color:#e3a72f;color:#07222a;font-weight:600}.btn.pri:hover{background:#f0c46a}
+.btn.danger{color:#ff9a8a;border-color:rgba(255,120,100,.35)}.btn.danger:hover{background:rgba(255,120,100,.1)}
+.inp{min-height:38px;padding:7px 11px;border-radius:9px;border:1px solid rgba(238,241,240,.16);background:#0a2a34;outline:none;width:100%}.inp:focus{border-color:#e3a72f}
+select.inp{width:auto}
+#login{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#0b2e39;border-radius:16px;box-shadow:0 0 0 1px rgba(238,241,240,.08),0 20px 60px rgba(0,0,0,.35)}
+#app{display:none;min-height:100%;flex-direction:column}
+header{position:sticky;top:0;z-index:5;background:rgba(7,34,42,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(238,241,240,.08)}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.top{padding:12px 20px;justify-content:space-between;flex-wrap:nowrap}
+.logo{font-weight:600;font-size:18px;letter-spacing:-.02em}.logo i{color:#e3a72f;font-style:normal}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:16px 20px 0}
+.kpi{padding:14px 16px;border-radius:12px;background:#0b2e39;box-shadow:0 0 0 1px rgba(238,241,240,.06)}.kpi b{display:block;font-size:24px;font-weight:600;letter-spacing:-.02em;font-feature-settings:"tnum"}.kpi span{font-size:12px;color:rgba(238,241,240,.6);text-transform:uppercase;letter-spacing:.06em}
+.tools{padding:14px 20px}
+.seg{display:inline-flex;border:1px solid rgba(238,241,240,.16);border-radius:9px;overflow:hidden}.seg button{border:0;background:transparent;padding:0 12px;min-height:36px;cursor:pointer;color:rgba(238,241,240,.7)}.seg button[aria-pressed=true]{background:rgba(227,167,47,.15);color:#e3a72f}
+main{flex:1;padding:0 20px 40px}
+.board{display:grid;grid-template-columns:repeat(5,minmax(240px,1fr));gap:12px;overflow-x:auto;padding-bottom:12px;align-items:start}
+.col{background:rgba(11,46,57,.6);border-radius:14px;padding:10px;min-height:200px;box-shadow:0 0 0 1px rgba(238,241,240,.05);transition:box-shadow .2s,background .2s}.col.over{box-shadow:0 0 0 2px #e3a72f;background:rgba(227,167,47,.06)}
+.colh{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 10px;font-weight:600}.colh small{color:rgba(238,241,240,.55);font-weight:400}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+.lead{background:#0d3442;border-radius:11px;padding:12px;margin-bottom:8px;cursor:pointer;box-shadow:0 0 0 1px rgba(238,241,240,.07);transition:transform .15s,box-shadow .15s}.lead:hover{box-shadow:0 0 0 1px rgba(227,167,47,.6);transform:translateY(-1px)}.lead.drag{opacity:.4}
+.lead .n{font-weight:600}.lead .m{font-size:12px;color:rgba(238,241,240,.6);margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;padding:1px 8px;border-radius:999px;font-size:11px;background:rgba(238,241,240,.08);color:rgba(238,241,240,.8)}.tag.new{background:rgba(227,167,47,.18);color:#f0c46a}.tag.due{background:rgba(255,120,100,.16);color:#ff9a8a}
+table{width:100%;border-collapse:collapse;background:#0b2e39;border-radius:14px;overflow:hidden}th,td{text-align:left;padding:11px 12px;border-bottom:1px solid rgba(238,241,240,.06);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:rgba(238,241,240,.55);font-weight:500;cursor:pointer;user-select:none;white-space:nowrap}tbody tr{cursor:pointer}tbody tr:hover{background:rgba(238,241,240,.03)}
+.tbl{overflow-x:auto}
+#drawer{position:fixed;inset:0;z-index:20;display:none}#drawer.open{display:block}
+#drawer .bg{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+#drawer .pn{position:absolute;right:0;top:0;bottom:0;width:min(560px,100%);background:#0a2a34;box-shadow:-20px 0 60px rgba(0,0,0,.4);overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:18px;animation:sl .25s cubic-bezier(.2,.7,.2,1)}
+@keyframes sl{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+.sec{display:flex;flex-direction:column;gap:8px}.sec h4{margin:0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(238,241,240,.55);font-weight:500}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid2 label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:rgba(238,241,240,.6)}
+.qa{padding:10px 12px;border-radius:10px;background:rgba(238,241,240,.04)}.qa div:first-child{font-size:12px;color:rgba(238,241,240,.55)}
+.note{padding:10px 12px;border-radius:10px;background:rgba(227,167,47,.07);white-space:pre-wrap}.note small{display:flex;justify-content:space-between;color:rgba(238,241,240,.5);margin-bottom:4px}.note button{background:none;border:0;color:rgba(238,241,240,.45);cursor:pointer}
+.hist{font-size:12px;color:rgba(238,241,240,.55)}
+.empty{padding:40px;text-align:center;color:rgba(238,241,240,.55)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#e3a72f;color:#07222a;padding:10px 18px;border-radius:999px;font-weight:600;display:none;z-index:30}
+.demo{background:rgba(227,167,47,.12);color:#f0c46a;padding:8px 20px;font-size:13px;display:none}
+@media (max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.board{grid-template-columns:repeat(5,82vw);scroll-snap-type:x mandatory}.col{scroll-snap-align:start}.hide-m{display:none}}
+</style>
+</head>
+<body>
+<div id="login">
+<form class="card" id="lf" style="width:min(380px,100%);padding:28px;display:flex;flex-direction:column;gap:14px">
+<div class="logo">annonce<i>.</i> CRM</div>
+<p style="margin:0;color:rgba(238,241,240,.65)">Введите пароль CRM (переменная <code>CRM_PASSWORD</code> в Netlify).</p>
+<input class="inp" id="pw" type="password" autocomplete="current-password" placeholder="Пароль" required>
+<label class="row" style="font-size:13px;color:rgba(238,241,240,.65)"><input type="checkbox" id="rem" style="accent-color:#e3a72f"> Запомнить на этом устройстве</label>
+<button class="btn pri" type="submit" style="justify-content:center">Войти</button>
+<div id="lerr" style="color:#ff9a8a;font-size:13px;min-height:1em"></div>
+<a href="/admin/" style="font-size:13px">← Вернуться в редактор сайта</a>
+</form>
+</div>
+<div id="app">
+<header>
+<div class="demo" id="demo">Демо-режим: CRM-сервер недоступен (сайт открыт не на Netlify). Показаны пример заявок, изменения не сохраняются.</div>
+<div class="row top">
+<div class="row" style="gap:16px"><div class="logo">annonce<i>.</i> CRM</div><a class="btn hide-m" href="/admin/">Редактор сайта</a><a class="btn hide-m" href="/" target="_blank">Сайт ↗</a></div>
+<div class="row"><span id="upd" class="hide-m" style="font-size:12px;color:rgba(238,241,240,.5)"></span><button class="btn" id="refresh" title="Обновить">↻</button><button class="btn" id="logout">Выйти</button></div>
+</div>
+</header>
+<div class="kpis" id="kpis"></div>
+<div class="row tools">
+<input class="inp" id="q" placeholder="Поиск: имя, телефон, сайт, заметки…" style="flex:1 1 240px;width:auto">
+<select class="inp" id="fs"><option value="">Все статусы</option></select>
+<select class="inp" id="fsrc"><option value="">Все источники</option></select>
+<select class="inp" id="fper"><option value="">За всё время</option><option value="7">7 дней</option><option value="30">30 дней</option><option value="90">90 дней</option></select>
+<div class="seg" role="group"><button id="vb" aria-pressed="true">Канбан</button><button id="vt" aria-pressed="false">Таблица</button></div>
+<button class="btn" id="csv">Экспорт CSV</button>
+<button class="btn pri" id="add">+ Заявка</button>
+</div>
+<main id="main"></main>
+</div>
+<div id="drawer"><div class="bg" data-close></div><div class="pn" id="pn"></div></div>
+<div id="toast"></div>
+<script>
+(() => {
+const ST = [
+  { k: 'new', t: 'Новая', c: '#e3a72f' }, { k: 'work', t: 'В работе', c: '#4fb3c7' },
+  { k: 'proposal', t: 'КП отправлено', c: '#8b8ff0' }, { k: 'won', t: 'Клиент', c: '#5fd08a' }, { k: 'lost', t: 'Отказ', c: '#8a9a9e' }
+];
+const SN = Object.fromEntries(ST.map((s) => [s.k, s]));
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const fmtD = (d, t) => { const x = new Date(d); if (isNaN(x)) return ''; return x.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: '2-digit' }) + (t ? ' ' + x.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }) : ''); };
+const money = (n) => (+n || 0).toLocaleString('ru-RU') + ' $';
+let PW = localStorage.getItem('annonce-crm') || sessionStorage.getItem('annonce-crm') || '';
+let LEADS = [], DEMO = false, VIEW = localStorage.getItem('annonce-crm-view') || 'board', SORT = { k: 'createdAt', d: -1 }, OPEN = null, SEEN = +(localStorage.getItem('annonce-crm-seen') || 0);
+const toast = (t) => { const el = $('#toast'); el.textContent = t; el.style.display = 'block'; clearTimeout(toast._t); toast._t = setTimeout(() => el.style.display = 'none', 2200); };
+
+async function api(method, body) {
+  if (DEMO) return demoApi(method, body);
+  const r = await fetch('/api/crm', { method, headers: { 'Authorization': 'Bearer ' + PW, 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined, cache: 'no-store' });
+  if (r.status === 401) throw Object.assign(new Error('auth'), { code: 401 });
+  const ct = r.headers.get('content-type') || '';
+  if (!ct.includes('json')) throw Object.assign(new Error('noapi'), { code: 404 });
+  const j = await r.json();
+  if (!j.ok) throw Object.assign(new Error(j.error || 'err'), { code: r.status, err: j.error });
+  return j;
+}
+function demoApi(method, b) {
+  if (method === 'GET') return { ok: true, leads: LEADS };
+  const now = new Date().toISOString();
+  if (b.action === 'create') { const lead = { id: 'demo-' + Date.now(), createdAt: now, status: 'new', notes: [], history: [{ at: now, text: 'Добавлена вручную' }], answers: [], utm: {}, source: 'manual', ...b.lead }; return { ok: true, lead }; }
+  const l = LEADS.find((x) => x.id === b.id); if (!l) return { ok: false };
+  if (b.action === 'delete') return { ok: true };
+  if (b.action === 'update') Object.assign(l, b.patch);
+  if (b.action === 'note') l.notes.push({ at: now, text: b.text });
+  if (b.action === 'deleteNote') l.notes = l.notes.filter((n) => n.at !== b.at);
+  return { ok: true, lead: { ...l } };
+}
+function demoData() {
+  const d = (h) => new Date(Date.now() - h * 3600e3).toISOString();
+  const q = ['Чего хотите добиться?', 'Где реклама сейчас?', 'Рекламный бюджет в месяц?', 'Ваша ниша?'];
+  return [
+    { id: 'd1', createdAt: d(2), status: 'new', name: 'Анна', phone: '@anna_dental', site: 'smile-clinic.com', source: 'google', utm: { utm_source: 'google', utm_campaign: 'brand' }, answers: [['Больше заявок', 'Google', '$1 000 – $5 000', 'Услуги']].flat().map((a, i) => ({ q: q[i], a })), notes: [], history: [{ at: d(2), text: 'Заявка с сайта' }], consent: { given: true, at: d(2) } },
+    { id: 'd2', createdAt: d(26), status: 'work', name: 'Игорь', phone: '+49 151 0000000', site: 'shop-ig.de', source: 'meta', value: 1500, nextAt: new Date().toISOString().slice(0, 10), utm: { utm_source: 'meta' }, answers: ['Больше продаж в магазине', 'Meta (Facebook, Instagram)', '$5 000 – $20 000', 'E-commerce'].map((a, i) => ({ q: q[i], a })), notes: [{ at: d(20), text: 'Созвон в четверг, нужен аудит кабинета' }], history: [], consent: { given: true, at: d(26) } },
+    { id: 'd3', createdAt: d(80), status: 'proposal', name: 'Мария', phone: '+7 900 000 00 00', site: '', source: 'direct', value: 2400, answers: [], notes: [], history: [], consent: { given: true, at: d(80) } },
+    { id: 'd4', createdAt: d(200), status: 'won', name: 'Олег, B2B', phone: '@oleg_b2b', source: 'linkedin.com', value: 3200, answers: [], notes: [], history: [], consent: { given: true, at: d(200) } },
+    { id: 'd5', createdAt: d(320), status: 'lost', name: 'Сергей', phone: '+380 00 000 0000', source: 'google', value: 0, answers: [], notes: [{ at: d(300), text: 'Бюджет меньше минимального' }], history: [], consent: { given: true, at: d(320) } }
+  ];
+}
+
+async function load(silent) {
+  try {
+    const j = await api('GET');
+    const prevIds = new Set(LEADS.map((l) => l.id));
+    LEADS = j.leads || [];
+    const fresh = silent && LEADS.filter((l) => !prevIds.has(l.id));
+    if (fresh && fresh.length) { toast('Новых заявок: ' + fresh.length); try { new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAABErAAABAAgAZGF0YQAAAAA=').play(); } catch (e) {} }
+    $('#upd').textContent = 'Обновлено ' + new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+    render();
+    if (location.hash.length > 1 && !OPEN) { const l = LEADS.find((x) => x.id === location.hash.slice(1)); if (l) openLead(l.id); }
+  } catch (e) {
+    if (e.code === 401) { logout('Неверный пароль'); return; }
+    if (e.err === 'no_password') { logout('На Netlify не задан CRM_PASSWORD. Добавьте переменную и сделайте Redeploy.'); return; }
+    if (!silent && (e.code === 404 || e instanceof TypeError || e.message === 'noapi')) { DEMO = true; $('#demo').style.display = 'block'; LEADS = demoData(); render(); return; }
+    if (!silent) toast('Ошибка загрузки');
+  }
+}
+function filtered() {
+  const q = $('#q').value.trim().toLowerCase(), fs = $('#fs').value, src = $('#fsrc').value, per = +$('#fper').value;
+  const since = per ? Date.now() - per * 864e5 : 0;
+  return LEADS.filter((l) => (!fs || l.status === fs) && (!src || (l.source || '') === src) && (!since || new Date(l.createdAt) >= since) &&
+    (!q || [l.name, l.phone, l.site, l.email, l.company, ...(l.notes || []).map((n) => n.text), ...(l.answers || []).map((a) => a.a)].join(' ').toLowerCase().includes(q)));
+}
+function kpis(list) {
+  const month = new Date(); month.setDate(1); month.setHours(0, 0, 0, 0);
+  const won = list.filter((l) => l.status === 'won'), closed = list.filter((l) => l.status === 'won' || l.status === 'lost');
+  const pipe = list.filter((l) => l.status === 'work' || l.status === 'proposal').reduce((s, l) => s + (+l.value || 0), 0);
+  const today = new Date().toISOString().slice(0, 10);
+  const due = list.filter((l) => l.nextAt && l.nextAt <= today && l.status !== 'won' && l.status !== 'lost').length;
+  const items = [
+    ['Всего заявок', list.length], ['Новых', list.filter((l) => l.status === 'new').length], ['За этот месяц', list.filter((l) => new Date(l.createdAt) >= month).length],
+    ['Конверсия в клиента', closed.length ? Math.round(won.length / list.length * 100) + '%' : '—'], ['В воронке', money(pipe)], ['Выиграно', money(won.reduce((s, l) => s + (+l.value || 0), 0))], ['Связаться сегодня', due]
+  ];
+  $('#kpis').innerHTML = items.map(([t, v]) => `<div class="kpi"><b>${esc(v)}</b><span>${esc(t)}</span></div>`).join('');
+}
+function cardMeta(l) {
+  const today = new Date().toISOString().slice(0, 10);
+  const isNew = new Date(l.createdAt).getTime() > SEEN && l.status === 'new';
+  return `${isNew ? '<span class="tag new">new</span>' : ''}${l.nextAt && l.nextAt <= today && l.status !== 'won' && l.status !== 'lost' ? `<span class="tag due">связаться ${esc(fmtD(l.nextAt))}</span>` : ''}<span>${esc(fmtD(l.createdAt, true))}</span>${l.source ? `<span class="tag">${esc(l.source)}</span>` : ''}${l.value ? `<span class="tag">${esc(money(l.value))}</span>` : ''}`;
+}
+function render() {
+  const srcs = [...new Set(LEADS.map((l) => l.source).filter(Boolean))].sort();
+  const fsrc = $('#fsrc'), cur = fsrc.value; fsrc.innerHTML = '<option value="">Все источники</option>' + srcs.map((s) => `<option${s === cur ? ' selected' : ''}>${esc(s)}</option>`).join('');
+  const list = filtered(); kpis(list);
+  $('#vb').setAttribute('aria-pressed', VIEW === 'board'); $('#vt').setAttribute('aria-pressed', VIEW === 'table');
+  const main = $('#main');
+  if (!LEADS.length) { main.innerHTML = '<div class="empty card">Заявок пока нет. Они появятся здесь сразу после отправки формы на сайте.</div>'; return; }
+  if (VIEW === 'board') {
+    main.innerHTML = `<div class="board">${ST.map((s) => { const it = list.filter((l) => l.status === s.k); const sum = it.reduce((a, l) => a + (+l.value || 0), 0); return `<div class="col" data-st="${s.k}"><div class="colh"><span><span class="dot" style="background:${s.c}"></span>${s.t} <small>${it.length}</small></span><small>${sum ? esc(money(sum)) : ''}</small></div>${it.map((l) => `<div class="lead" draggable="true" data-id="${esc(l.id)}"><div class="n">${esc(l.name || 'Без имени')}</div><div style="font-size:13px;color:rgba(238,241,240,.8)">${esc(l.phone || '')}</div><div class="m">${cardMeta(l)}</div></div>`).join('')}</div>`; }).join('')}</div>`;
+    main.querySelectorAll('.lead').forEach((el) => {
+      el.addEventListener('click', () => openLead(el.dataset.id));
+      el.addEventListener('dragstart', (e) => { el.classList.add('drag'); e.dataTransfer.setData('text/plain', el.dataset.id); e.dataTransfer.effectAllowed = 'move'; });
+      el.addEventListener('dragend', () => el.classList.remove('drag'));
+    });
+    main.querySelectorAll('.col').forEach((col) => {
+      col.addEventListener('dragover', (e) => { e.preventDefault(); col.classList.add('over'); });
+      col.addEventListener('dragleave', () => col.classList.remove('over'));
+      col.addEventListener('drop', (e) => { e.preventDefault(); col.classList.remove('over'); const id = e.dataTransfer.getData('text/plain'); setStatus(id, col.dataset.st); });
+    });
+  } else {
+    const cols = [['createdAt', 'Дата'], ['name', 'Имя'], ['phone', 'Контакт'], ['status', 'Статус'], ['source', 'Источник'], ['value', 'Сумма'], ['nextAt', 'Связаться']];
+    const sorted = list.slice().sort((a, b) => { const x = a[SORT.k] ?? '', y = b[SORT.k] ?? ''; return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))) * SORT.d; });
+    main.innerHTML = `<div class="tbl"><table><thead><tr>${cols.map(([k, t]) => `<th data-k="${k}">${t}${SORT.k === k ? (SORT.d > 0 ? ' ↑' : ' ↓') : ''}</th>`).join('')}</tr></thead><tbody>${sorted.map((l) => `<tr data-id="${esc(l.id)}"><td>${esc(fmtD(l.createdAt, true))}</td><td><b>${esc(l.name || '—')}</b>${l.site ? `<div style="font-size:12px;color:rgba(238,241,240,.55)">${esc(l.site)}</div>` : ''}</td><td>${esc(l.phone || '')}</td><td><span class="dot" style="background:${SN[l.status]?.c}"></span>${esc(SN[l.status]?.t || l.status)}</td><td>${esc(l.source || '')}</td><td>${l.value ? esc(money(l.value)) : ''}</td><td>${esc(l.nextAt ? fmtD(l.nextAt) : '')}</td></tr>`).join('')}</tbody></table></div>`;
+    main.querySelectorAll('th').forEach((th) => th.addEventListener('click', () => { const k = th.dataset.k; SORT = { k, d: SORT.k === k ? -SORT.d : -1 }; render(); }));
+    main.querySelectorAll('tbody tr').forEach((tr) => tr.addEventListener('click', () => openLead(tr.dataset.id)));
+  }
+}
+async function setStatus(id, st) {
+  const l = LEADS.find((x) => x.id === id); if (!l || l.status === st) return;
+  const prev = l.status; l.status = st; render();
+  try { const j = await api('POST', { action: 'update', id, patch: { status: st } }); Object.assign(l, j.lead); toast('Статус: ' + SN[st].t); if (OPEN === id) openLead(id); } catch (e) { l.status = prev; render(); toast('Не удалось сохранить'); }
+}
+const contactLinks = (p) => { p = String(p || '').trim(); if (!p) return ''; const out = []; const digits = p.replace(/[^\d+]/g, ''); if (/^@|t\.me/i.test(p)) out.push(`<a class="btn" target="_blank" rel="noopener" href="https://t.me/${esc(p.replace(/^@|https?:\/\/t\.me\//i, ''))}">Telegram</a>`); if (digits.replace('+', '').length >= 7) { out.push(`<a class="btn" href="tel:${esc(digits)}">Позвонить</a>`); out.push(`<a class="btn" target="_blank" rel="noopener" href="https://wa.me/${esc(digits.replace('+', ''))}">WhatsApp</a>`); } out.push(`<button class="btn" data-copy="${esc(p)}">Копировать</button>`); return out.join(''); };
+function openLead(id) {
+  const l = LEADS.find((x) => x.id === id); if (!l) return; OPEN = id; history.replaceState(null, '', '#' + id);
+  const u = l.utm || {};
+  $('#pn').innerHTML = `
+  <div class="row" style="justify-content:space-between"><div><div style="font-size:22px;font-weight:600;letter-spacing:-.02em">${esc(l.name || 'Без имени')}</div><div style="font-size:12px;color:rgba(238,241,240,.55)">Заявка от ${esc(fmtD(l.createdAt, true))} · ID ${esc(l.id)}</div></div><button class="btn" data-close aria-label="Закрыть">✕</button></div>
+  <div class="row">${contactLinks(l.phone)}</div>
+  <div class="sec"><h4>Статус</h4><div class="seg" style="flex-wrap:wrap">${ST.map((s) => `<button data-st="${s.k}" aria-pressed="${l.status === s.k}"><span class="dot" style="background:${s.c}"></span>${s.t}</button>`).join('')}</div></div>
+  <div class="sec"><h4>Данные</h4><div class="grid2">
+   <label>Имя<input class="inp" data-f="name" value="${esc(l.name || '')}"></label><label>Телефон / Telegram<input class="inp" data-f="phone" value="${esc(l.phone || '')}"></label>
+   <label>E-mail<input class="inp" data-f="email" value="${esc(l.email || '')}"></label><label>Компания<input class="inp" data-f="company" value="${esc(l.company || '')}"></label>
+   <label>Сайт<input class="inp" data-f="site" value="${esc(l.site || '')}"></label><label>Ответственный<input class="inp" data-f="owner" value="${esc(l.owner || '')}"></label>
+   <label>Сумма сделки, $<input class="inp" data-f="value" type="number" min="0" step="50" value="${esc(l.value || '')}"></label><label>Связаться<input class="inp" data-f="nextAt" type="date" value="${esc((l.nextAt || '').slice(0, 10))}"></label>
+  </div><div class="row"><button class="btn pri" id="save">Сохранить</button></div></div>
+  ${(l.answers || []).length ? `<div class="sec"><h4>Ответы квиза</h4>${l.answers.map((a) => `<div class="qa"><div>${esc(a.q)}</div><div>${esc(a.a || '—')}</div></div>`).join('')}</div>` : ''}
+  <div class="sec"><h4>Заметки</h4><textarea class="inp" id="nt" rows="3" placeholder="Итоги звонка, договорённости…" style="resize:vertical"></textarea><div class="row"><button class="btn" id="addn">Добавить заметку</button></div>${(l.notes || []).slice().reverse().map((n) => `<div class="note"><small><span>${esc(fmtD(n.at, true))}</span><button data-dn="${esc(n.at)}" title="Удалить">✕</button></small>${esc(n.text)}</div>`).join('')}</div>
+  <div class="sec"><h4>Источник</h4><div class="qa" style="font-size:13px">${[['Источник', l.source], ['Кампания', u.utm_campaign], ['Канал', u.utm_medium], ['Объявление', u.utm_content], ['Ключ', u.utm_term], ['Реферер', l.referrer || u.referrer], ['Страница', l.page || u.landing], ['Язык', l.lang], ['gclid', u.gclid ? '✓' : ''], ['fbclid', u.fbclid ? '✓' : '']].filter((x) => x[1]).map(([k, v]) => `<div><span style="color:rgba(238,241,240,.55)">${k}:</span> ${esc(v)}</div>`).join('') || '—'}</div></div>
+  <div class="sec"><h4>Согласие (GDPR)</h4><div class="qa" style="font-size:13px">${l.consent?.given ? `✓ Дано ${esc(fmtD(l.consent.at, true))}${l.consent.version ? ' · политика v' + esc(l.consent.version) : ''}${l.consent.text ? `<div style="color:rgba(238,241,240,.55);margin-top:4px">«${esc(l.consent.text)}»</div>` : ''}` : esc(l.consent?.text || 'Нет данных')}</div></div>
+  <div class="sec"><h4>История</h4>${(l.history || []).slice().reverse().map((h) => `<div class="hist">${esc(fmtD(h.at, true))} — ${esc(h.text)}</div>`).join('') || '<div class="hist">—</div>'}</div>
+  <div class="sec" style="border-top:1px solid rgba(238,241,240,.08);padding-top:16px"><h4>Данные клиента</h4><div class="row"><button class="btn" id="exp1">Выгрузить данные (JSON)</button><button class="btn danger" id="del">Удалить заявку навсегда</button></div><div class="hist">Используйте при запросе клиента на доступ или удаление данных (GDPR ст. 15, 17).</div></div>`;
+  $('#drawer').classList.add('open');
+  const pn = $('#pn');
+  pn.querySelectorAll('[data-st]').forEach((b) => b.addEventListener('click', () => setStatus(id, b.dataset.st)));
+  pn.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => { navigator.clipboard?.writeText(b.dataset.copy); toast('Скопировано'); }));
+  $('#save').addEventListener('click', async () => { const patch = {}; pn.querySelectorAll('[data-f]').forEach((i) => patch[i.dataset.f] = i.value); try { const j = await api('POST', { action: 'update', id, patch }); Object.assign(l, j.lead || patch); render(); openLead(id); toast('Сохранено'); } catch (e) { toast('Не удалось сохранить'); } });
+  $('#addn').addEventListener('click', async () => { const t = $('#nt').value.trim(); if (!t) return; try { const j = await api('POST', { action: 'note', id, text: t }); Object.assign(l, j.lead); openLead(id); render(); } catch (e) { toast('Ошибка'); } });
+  pn.querySelectorAll('[data-dn]').forEach((b) => b.addEventListener('click', async () => { try { const j = await api('POST', { action: 'deleteNote', id, at: b.dataset.dn }); Object.assign(l, j.lead); openLead(id); } catch (e) { toast('Ошибка'); } }));
+  $('#exp1').addEventListener('click', () => dl(`lead-${id}.json`, JSON.stringify(l, null, 2), 'application/json'));
+  $('#del').addEventListener('click', async () => { if (!confirm('Удалить заявку и все данные клиента без возможности восстановления?')) return; try { await api('POST', { action: 'delete', id }); LEADS = LEADS.filter((x) => x.id !== id); closeDrawer(); render(); toast('Удалено'); } catch (e) { toast('Ошибка удаления'); } });
+}
+function closeDrawer() { $('#drawer').classList.remove('open'); OPEN = null; history.replaceState(null, '', location.pathname); }
+function dl(name, text, type) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); }
+function csv() {
+  const qs = [...new Set(LEADS.flatMap((l) => (l.answers || []).map((a) => a.q)))];
+  const head = ['Дата', 'Статус', 'Имя', 'Телефон', 'E-mail', 'Компания', 'Сайт', 'Сумма', 'Связаться', 'Ответственный', 'Источник', 'Кампания', ...qs, 'Заметки'];
+  const q = (v) => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+  const rows = filtered().map((l) => [fmtD(l.createdAt, true), SN[l.status]?.t, l.name, l.phone, l.email, l.company, l.site, l.value, l.nextAt, l.owner, l.source, l.utm?.utm_campaign, ...qs.map((x) => (l.answers || []).find((a) => a.q === x)?.a), (l.notes || []).map((n) => n.text).join(' | ')].map(q).join(';'));
+  dl(`annonce-leads-${new Date().toISOString().slice(0, 10)}.csv`, '\ufeff' + [head.map(q).join(';'), ...rows].join('\n'), 'text/csv;charset=utf-8');
+}
+function addLead() {
+  OPEN = null;
+  $('#pn').innerHTML = `<div class="row" style="justify-content:space-between"><div style="font-size:22px;font-weight:600">Новая заявка</div><button class="btn" data-close>✕</button></div>
+  <form id="nf" class="sec"><div class="grid2"><label>Имя<input class="inp" name="name" required></label><label>Телефон / Telegram<input class="inp" name="phone"></label><label>E-mail<input class="inp" name="email"></label><label>Компания<input class="inp" name="company"></label><label>Сайт<input class="inp" name="site"></label><label>Источник<input class="inp" name="source" placeholder="звонок, рекомендация…"></label><label>Сумма, $<input class="inp" name="value" type="number" min="0"></label><label>Связаться<input class="inp" name="nextAt" type="date"></label></div><textarea class="inp" name="note" rows="3" placeholder="Заметка"></textarea><div class="row"><button class="btn pri" type="submit">Создать</button></div></form>`;
+  $('#drawer').classList.add('open');
+  $('#nf').addEventListener('submit', async (e) => { e.preventDefault(); const lead = Object.fromEntries(new FormData(e.target)); try { const j = await api('POST', { action: 'create', lead }); LEADS.unshift(j.lead); render(); openLead(j.lead.id); toast('Заявка создана'); } catch (er) { toast('Ошибка'); } });
+}
+function logout(msg) { PW = ''; localStorage.removeItem('annonce-crm'); sessionStorage.removeItem('annonce-crm'); $('#app').style.display = 'none'; $('#login').style.display = 'flex'; $('#lerr').textContent = msg || ''; }
+function start() { $('#login').style.display = 'none'; $('#app').style.display = 'flex'; load(); clearInterval(start._i); start._i = setInterval(() => { if (!document.hidden && !DEMO) load(true); }, 45000); }
+
+ST.forEach((s) => $('#fs').insertAdjacentHTML('beforeend', `<option value="${s.k}">${s.t}</option>`));
+$('#lf').addEventListener('submit', (e) => { e.preventDefault(); PW = $('#pw').value; ($('#rem').checked ? localStorage : sessionStorage).setItem('annonce-crm', PW); start(); });
+['#q', '#fs', '#fsrc', '#fper'].forEach((s) => $(s).addEventListener('input', render));
+$('#vb').addEventListener('click', () => { VIEW = 'board'; localStorage.setItem('annonce-crm-view', VIEW); render(); });
+$('#vt').addEventListener('click', () => { VIEW = 'table'; localStorage.setItem('annonce-crm-view', VIEW); render(); });
+$('#csv').addEventListener('click', csv); $('#add').addEventListener('click', addLead);
+$('#refresh').addEventListener('click', () => load()); $('#logout').addEventListener('click', () => logout());
+$('#drawer').addEventListener('click', (e) => { if (e.target.closest('[data-close]')) closeDrawer(); });
+addEventListener('keydown', (e) => { if (e.key === 'Escape' && OPEN !== undefined) closeDrawer(); if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') { e.preventDefault(); $('#q').focus(); } });
+addEventListener('beforeunload', () => localStorage.setItem('annonce-crm-seen', String(Date.now())));
+if (PW) start();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Калькулятор",
+    "en": "Calculator"
+  },
+  "title": {
+    "ru": "Сколько клиентов принесёт ваш бюджет?",
+    "en": "How many clients will your budget bring?"
+  },
+  "budgetLabel": {
+    "ru": "Рекламный бюджет в месяц",
+    "en": "Monthly ad budget"
+  },
+  "leadsLabel": {
+    "ru": "заявок в месяц",
+    "en": "leads per month"
+  },
+  "clientsLabel": {
+    "ru": "новых клиентов",
+    "en": "new clients"
+  },
+  "note": {
+    "ru": "Оценка по средним показателям наших клиентов. Точный прогноз — после аудита.",
+    "en": "Estimate based on our clients' averages. Exact forecast after the audit."
+  },
+  "cpl": 12,
+  "closeRate": 18,
+  "min": 500,
+  "max": 50000
+}

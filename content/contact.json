@@ -1,0 +1,22 @@
+{
+  "show": true,
+  "title": {
+    "ru": "Хватит платить за охваты.",
+    "en": "Stop paying for reach."
+  },
+  "sub": {
+    "ru": "Оставьте заявку — проведём бесплатный аудит рекламы и покажем, где теряются клиенты.",
+    "en": "Leave a request — we'll run a free ad audit and show where you're losing clients."
+  },
+  "email": "hello@annonce.agency",
+  "phones": {
+    "ru": "[+0 000 000 00 00] · Telegram · Instagram",
+    "en": "[+0 000 000 00 00] · Telegram · Instagram"
+  },
+  "telegram": "https://t.me/annonce",
+  "whatsapp": "https://wa.me/00000000000",
+  "floatLabel": {
+    "ru": "Написать нам",
+    "en": "Message us"
+  }
+}

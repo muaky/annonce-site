@@ -1,0 +1,45 @@
+{
+  "show": true,
+  "items": [
+    {
+      "value": {
+        "ru": "000+",
+        "en": "000+"
+      },
+      "label": {
+        "ru": "Запущенных кампаний",
+        "en": "Campaigns launched"
+      }
+    },
+    {
+      "value": {
+        "ru": "$0M",
+        "en": "$0M"
+      },
+      "label": {
+        "ru": "Рекламного бюджета в управлении",
+        "en": "Ad spend managed"
+      }
+    },
+    {
+      "value": {
+        "ru": "×0,0",
+        "en": "×0.0"
+      },
+      "label": {
+        "ru": "Средний ROAS",
+        "en": "Average ROAS"
+      }
+    },
+    {
+      "value": {
+        "ru": "−00%",
+        "en": "−00%"
+      },
+      "label": {
+        "ru": "Стоимость заявки",
+        "en": "Cost per lead"
+      }
+    }
+  ]
+}

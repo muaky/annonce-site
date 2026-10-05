@@ -1,0 +1,28 @@
+{
+  "show": true,
+  "title": {
+    "ru": "Лайки не платят аренду.\nКлиенты — платят.",
+    "en": "Likes don't pay rent.\nClients do."
+  },
+  "sub": {
+    "ru": "Закрываем маркетинг целиком: стратегия, бренд, сайт, приложение, реклама в Google и Meta, аналитика. Одна команда отвечает за весь путь клиента — от первого касания до оплаты.",
+    "en": "We cover marketing end to end: strategy, brand, website, app, Google and Meta ads, analytics. One team owns the whole customer journey, from first touch to payment."
+  },
+  "cta1": {
+    "ru": "Обсудить проект",
+    "en": "Let's talk"
+  },
+  "cta2": {
+    "ru": "Смотреть кейсы",
+    "en": "See cases"
+  },
+  "metric": {
+    "ru": "×0,0",
+    "en": "×0.0"
+  },
+  "metricLabel": {
+    "ru": "[Ключевая метрика — напр. средний рост ROAS клиентов]",
+    "en": "[Key metric — e.g. average client ROAS growth]"
+  },
+  "image": ""
+}

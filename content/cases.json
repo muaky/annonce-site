@@ -1,0 +1,53 @@
+{
+  "show": true,
+  "kicker": {
+    "ru": "Кейсы",
+    "en": "Cases"
+  },
+  "title": {
+    "ru": "Цифры вместо обещаний",
+    "en": "Numbers, not promises"
+  },
+  "endTitle": {
+    "ru": "Следующий кейс — ваш.",
+    "en": "The next case is yours."
+  },
+  "endCta": {
+    "ru": "Обсудить проект",
+    "en": "Let's talk"
+  },
+  "more": {
+    "ru": "Смотреть кейс",
+    "en": "View case"
+  },
+  "back": {
+    "ru": "← Все кейсы",
+    "en": "← All cases"
+  },
+  "next": {
+    "ru": "Следующий кейс",
+    "en": "Next case"
+  },
+  "metaLabels": {
+    "client": {
+      "ru": "Клиент",
+      "en": "Client"
+    },
+    "niche": {
+      "ru": "Ниша",
+      "en": "Industry"
+    },
+    "channels": {
+      "ru": "Каналы",
+      "en": "Channels"
+    },
+    "period": {
+      "ru": "Срок",
+      "en": "Timeline"
+    }
+  },
+  "ctaTitle": {
+    "ru": "Хотите такой же результат?",
+    "en": "Want results like these?"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "post-meta",
+  "date": "2026-09-15",
+  "title": {
+    "ru": "[Заголовок статьи]",
+    "en": "[Article title]"
+  },
+  "tag": {
+    "ru": "Meta",
+    "en": "Meta"
+  },
+  "excerpt": {
+    "ru": "[1–2 предложения о чём статья]",
+    "en": "[1–2 sentences about the article]"
+  },
+  "image": "",
+  "body": {
+    "ru": "[Вступление: о чём статья и кому она полезна.]\n\n## [Подзаголовок]\n\n[Текст раздела. Можно использовать **жирный**, *курсив*, [ссылки](https://example.com) и списки.]\n\n- [Пункт]\n- [Пункт]\n\n## [Подзаголовок]\n\n[Текст раздела.]\n\n> [Цитата или главный вывод статьи.]",
+    "en": "[Intro: what the article is about and who it helps.]\n\n## [Subheading]\n\n[Section text. You can use **bold**, *italic*, [links](https://example.com) and lists.]\n\n- [Item]\n- [Item]\n\n## [Subheading]\n\n[Section text.]\n\n> [A quote or the key takeaway.]"
+  }
+}
